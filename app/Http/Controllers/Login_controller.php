@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
-use App\Items_model;
 
 class Login_controller extends Controller
 {
@@ -41,7 +40,6 @@ class Login_controller extends Controller
 
     function dashboard(){
     	if(isset(Auth::user()->email_id)){
-            $data['items'] = Items_model::all();
             $data['page_title'] = 'Dashboard';
             return view('dashboard', $data);
   		 }else{
